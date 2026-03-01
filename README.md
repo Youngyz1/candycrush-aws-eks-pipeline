@@ -1,13 +1,15 @@
-# í½¬ CandyCrush DevOps Pipeline
+# ï¿½ï¿½ï¿½ CandyCrush DevOps Pipeline
 
 A complete end-to-end DevOps pipeline featuring CI/CD automation, security scanning, containerization, Kubernetes deployment on AWS EKS, and monitoring with Prometheus and Grafana.
+<img width="1918" height="924" alt="image (14)" src="https://github.com/user-attachments/assets/0ecbe135-5ae5-4277-8d16-9f68b6b63c9d" />
 
-## í¿—ï¸ Architecture
+
+## ï¿½ï¿½ï¿½ï¸ Architecture
 ```
 GitHub Push â†’ GitHub Actions â†’ SonarQube â†’ Trivy â†’ Docker â†’ EKS â†’ Prometheus + Grafana
 ```
 
-## í» ï¸ Tech Stack
+## ï¿½ï¿½ï¿½ï¸ Tech Stack
 
 | Tool | Purpose |
 |------|---------|
@@ -22,7 +24,7 @@ GitHub Push â†’ GitHub Actions â†’ SonarQube â†’ Trivy â†’ Docker â†’ EKS â†’ Pr
 | Grafana | Monitoring Dashboards |
 | Slack | Notifications |
 
-## íº€ Quick Start
+## ï¿½ï¿½ï¿½ Quick Start
 
 ### 1. Install Tools on EC2
 ```bash
@@ -59,6 +61,8 @@ aws eks --region us-east-1 update-kubeconfig --name EKS_CLOUD
 kubectl apply -f deployment-service.yml
 kubectl get all
 ```
+<img width="1467" height="697" alt="image (11)" src="https://github.com/user-attachments/assets/22c4343b-1686-4162-b772-d408382b0c7e" />
+
 
 ### 6. Install Monitoring
 ```bash
@@ -70,8 +74,12 @@ helm install prometheus prometheus-community/kube-prometheus-stack \
   --set prometheus.service.type=LoadBalancer \
   --set grafana.service.type=LoadBalancer
 ```
+<img width="1336" height="577" alt="image (10)" src="https://github.com/user-attachments/assets/624eeb44-56f7-43b2-bf77-c8177bb7fc5b" />
+<img width="1917" height="943" alt="image (12)" src="https://github.com/user-attachments/assets/844f44d1-e928-470a-852d-5a9216669797" />
 
-## í³ Project Structure
+
+
+## ï¿½ï¿½ï¿½ Project Structure
 ```
 Candycrush/
 â”œâ”€â”€ .github/workflows/deploy.yml     # CI/CD pipeline
@@ -82,7 +90,7 @@ Candycrush/
 â””â”€â”€ package.json                     # Node.js dependencies
 ```
 
-## í·¹ Cleanup
+## ï¿½ï¿½ï¿½ Cleanup
 ```bash
 helm uninstall prometheus -n monitoring
 kubectl delete namespace monitoring
@@ -91,5 +99,5 @@ cd Eks-terraform && terraform destroy --auto-approve
 aws s3 rb s3://youngyz1-terraform-state --force
 ```
 
-## í±¤ Author
+## ï¿½ï¿½ï¿½ Author
 **Youngyz1** - [@Youngyz1](https://github.com/Youngyz1)
